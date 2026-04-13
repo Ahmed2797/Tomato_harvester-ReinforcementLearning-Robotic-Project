@@ -1,0 +1,23 @@
+# Ml
+numpy==2.2.6
+matplotlib
+pandas
+scikit-learn
+# Dl-CV
+torch==2.9.1 
+torchaudio==2.9.1 
+torchvision==0.24.1
+opencv-python==4.12.0.88
+ultralytics==8.3.227
+supervision==0.27.0
+trackers==2.3.0
+# Dependence
+gymnasium
+stable-baselines3
+pyrealsense2
+tqdm
+albumentations
+
+-e .
+
+## pip install -r requirements.txt
