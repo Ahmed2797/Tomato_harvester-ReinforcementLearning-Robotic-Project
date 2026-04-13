@@ -1,3 +1,5 @@
+tomato_ai_robot/models
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[codz]
