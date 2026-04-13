@@ -7,6 +7,13 @@ from ultralytics import YOLO
 # -----------------------------
 model = YOLO("models/best(150).pt")
 
+# model.export(
+#     format="onnx",
+#     opset=12,        # good compatibility
+#     simplify=True,   # optimize model
+#     dynamic=True     # dynamic input size
+# )
+
 # -----------------------------
 # LOAD IMAGE
 # -----------------------------
@@ -28,27 +35,27 @@ boxes = result.boxes.xyxy.cpu().numpy()
 classes = result.boxes.cls.cpu().numpy()
 
 # copy image for drawing
-annotated = frame.copy()
+annotated = result.plot(conf=False,font_size=0.1,labels=True,boxes=True,line_width=1)
 
-for box, cls_id in zip(boxes, classes):
-    label = names[int(cls_id)]
+# for box, cls_id in zip(boxes, classes):
+#     label = names[int(cls_id)]
 
-    if label not in allowed:
-        continue
+#     if label not in allowed:
+#         continue
 
-    x1, y1, x2, y2 = map(int, box)
+#     x1, y1, x2, y2 = map(int, box)
 
-    cv2.rectangle(annotated, (x1, y1), (x2, y2), (0, 255, 0), 2)
+#     cv2.rectangle(annotated, (x1, y1), (x2, y2), (0, 255, 0), 2)
 
-    cv2.putText(
-        annotated,
-        label,
-        (x1, y1 - 5),
-        cv2.FONT_HERSHEY_SIMPLEX,
-        0.6,
-        (0, 255, 0),
-        2
-    )
+#     cv2.putText(
+#         annotated,
+#         label,
+#         (x1, y1 - 5),
+#         cv2.FONT_HERSHEY_SIMPLEX,
+#         0.6,
+#         (0, 255, 0),
+#         2
+#     )
 
 # -----------------------------
 # SHOW RESULT
