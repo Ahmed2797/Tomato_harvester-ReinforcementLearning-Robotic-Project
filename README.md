@@ -56,3 +56,9 @@ python main.py
 # ## run web app
 # python app.py
 ```
+
+### Download the train model
+
+```bash
+https://drive.google.com/file/d/1SsxhCsru462HRbs2XWXI3U5lJyLujPUF/view?usp=sharing
+```
